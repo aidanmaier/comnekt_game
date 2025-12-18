@@ -8,7 +8,7 @@ while True:
     print('\nGAME SETUP\n')
 
     for i, mode in enumerate(game_modes):
-        print(f'{i+1} - {mode}') 
+        print(f"{i+1} - {mode}") 
     print('4 - Quit')
     print()
 
@@ -37,7 +37,7 @@ while True:
         tokens = [] #record of player tokens to avoid repetition
         for i in range(game.num_players): #prompt players to choose their game token character
             while True: #error handling
-                token = input(f'Player {i+1}, select an alphabet character for your game token: ')
+                token = input(f"Player {i+1}, select an alphabet character for your game token: ")
                 token = token.upper()
                 if token in tokens:
                     print('\nToken already in use - choose again')
@@ -56,9 +56,9 @@ while True:
 
     print('\nNEW GAME\n')
     #print game settings
-    print(f'Mode: {game_modes[mode_choice-1]}')
-    print(f'Victory: get {game.goal} in a row to win')
-    print(f'Play order: {', '.join(['Player '+player.token for player in game.players])}')
+    print(f"Mode: {game_modes[mode_choice-1]}")
+    print(f"Victory: get {game.goal} in a row to win")
+    print(f"Play order: {', '.join(['Player '+player.token for player in game.players])}")
 
     #Gameplay loop:
     turn = 1
@@ -67,16 +67,16 @@ while True:
             if not board.blank_space(): #if no space left on board, end game with no winner
                 print('\nGame over - no spaces left')
                 game.winner = 'Draw'
-                print(f'Winner: {game.winner}')
+                print(f"Winner: {game.winner}")
                 board.display()
                 board.wipe()
                 break
             else:
-                print(f'\nPlayer {player.token}, Turn {turn}')
+                print(f"\nPlayer {player.token}, Turn {turn}")
                 board.display()
                 game.move(player)
                 if game.winner: #end game with winner
-                    print(f'\nGame over - Player {game.winner.token} wins!')
+                    print(f"\nGame over - Player {game.winner.token} wins!")
                     board.display()
                     board.wipe()
                     break

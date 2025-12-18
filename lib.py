@@ -1,7 +1,7 @@
 def int_prompt(text: str, lo: int, hi: int) -> int:
     """Prompts user for int within a range, with error handling"""
     while True:
-        user_in = input(f'Select a{text} between {lo} and {hi}: ')
+        user_in = input(f"Select a{text} between {lo} and {hi}: ")
         try:
             val = int(user_in)
             if val not in range(lo, hi+1):
